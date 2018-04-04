@@ -26,10 +26,16 @@ int main(){
     k++;
   }
   printf("\n   ");
-  while((j - 8) < 64){
-  fscanf(board,"%c\n",&(A[j - 8].X));
-  printf("%2c", A[j - 8].X);
-  j++;
-}
-  //printf("\n A[%d][%c] - !%c!", A[56].Y, A[56].X, A[56].name_f);
+  i = 0;
+  while(i < (j - 8)){
+      while((j - 8) < 64){
+          fscanf(board,"%c\n",&(A[j - 8].X));
+          A[i].X = A[j - 8].X;
+          j++;
+          i++;
+      }
+      j = 64;
+  }
+  while((j - 8) < 64){ printf("%2c", A[j - 8].X); j++;}
+  //printf("\n A[%d][%c] - !%c!", A[0].Y, A[0].X, A[0].name_f);
 }
