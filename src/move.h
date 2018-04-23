@@ -1,0 +1,1 @@
+void move(struct Board1 *, int );
