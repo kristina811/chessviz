@@ -7,16 +7,16 @@ int check_X(char, int, int);
 void move(struct Board1 *A, int color){
     int Y_first, Y_last;
     char X_first, X_last;
-    char temp;
+    char temp_name;
     printf("\n enter your move: ");
     scanf("%c%d - %c%d", &X_first, &Y_first, &X_last, &Y_last);
     for(int i = 0; i < N; i++){
         if((A[i].X == X_last) && (A[i].Y == Y_last)) {
-            temp = A[i].name_f;
+            temp_name = A[i].name_f;
         for(int j = 0; j < N; j++){
             if((A[j].X == X_first) && (A[j].Y == Y_first)){
                 A[i].name_f = A[j].name_f;
-                A[j].name_f = temp;
+                A[j].name_f = temp_name;
             }
         }
     }
