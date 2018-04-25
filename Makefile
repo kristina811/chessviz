@@ -5,26 +5,26 @@ CC = g++
 #в переменной CFLAGS лежат флаги, которые передаются компилятору
 CFLAGS = -c -Wall -Werror
 
-ODIR = build 
+ODIR = build
 CDIR = src
 
-all: create board
-
-board: $(ODIR)/main.o $(ODIR)/move.o $(ODIR)/print.o
-		$(CC) -o board $(ODIR)/main.o $(ODIR)/move.o $(ODIR)/print.o
+all: create bin/board
+		
+bin/board: $(ODIR)/main.o $(ODIR)/move.o $(ODIR)/print.o
+			$(CC) -o bin/board $(ODIR)/main.o $(ODIR)/move.o $(ODIR)/print.o
 
 $(ODIR)/main.o: $(CDIR)/main.cpp $(CDIR)/functions.h $(CDIR)/global.h $(ODIR)/move.o $(ODIR)/print.o 
-							$(CC) $(CFLAGS) -o $(ODIR)/main.o $(CDIR)/main.cpp
+				$(CC) -o $(ODIR)/main.o $(CFLAGS) $(CDIR)/main.cpp
 
 $(ODIR)/move.o: $(CDIR)/move.cpp $(CDIR)/print.h $(CDIR)/global.h $(ODIR)/print.o
-							$(CC) $(CFLAGS) -o $(ODIR)/move.o $(CDIR)/move.cpp
+				$(CC) -o $(ODIR)/move.o  $(CFLAGS) $(CDIR)/move.cpp
 
 $(ODIR)/print.o: $(CDIR)/print.cpp $(CDIR)/global.h
-							$(CC) $(CFLAGS) -o $(ODIR)/print.o $(CDIR)/print.cpp
-							
+				$(CC) -o $(ODIR)/print.o $(CFLAGS) $(CDIR)/print.cpp
+			
 create : 
 		mkdir -p $(ODIR)/
 		mkdir -p bin/
-
+		
 clean:
-						rm -f $(ODIR)/*.o
+		rm -f $(ODIR)/*.o
