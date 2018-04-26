@@ -8,7 +8,7 @@ CFLAGS = -c -Wall -Werror
 ODIR = build
 CDIR = src
 
-all: create bin/board
+all: bin/board
 		
 bin/board: $(ODIR)/main.o $(ODIR)/move.o $(ODIR)/print.o
 			$(CC) -o bin/board $(ODIR)/main.o $(ODIR)/move.o $(ODIR)/print.o
@@ -21,10 +21,6 @@ $(ODIR)/move.o: $(CDIR)/move.cpp $(CDIR)/print.h $(CDIR)/global.h $(ODIR)/print.
 
 $(ODIR)/print.o: $(CDIR)/print.cpp $(CDIR)/global.h
 				$(CC) -o $(ODIR)/print.o $(CFLAGS) $(CDIR)/print.cpp
-			
-create : 
-		mkdir -p $(ODIR)/
-		mkdir -p bin/
 		
 clean:
 		rm -f $(ODIR)/*.o

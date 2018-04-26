@@ -13,4 +13,5 @@ void printA(struct Board1 *A){
     }
     printf("\n   ");
     while((i - 8) < N){printf("%2c", A[i - 8].X); i++;}
+    //for(i = 0; i < N; i++) printf("\n A[%c][%d] - %c", A[i].X, A[i].Y, A[i].name_f);
 }
