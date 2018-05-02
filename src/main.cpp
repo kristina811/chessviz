@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include "functions.h"
 #include "global.h"
 #include <stdlib.h>
@@ -47,5 +46,4 @@ int main(){
       scanf("%d", &k);
   }
   fclose(board);
-  getch();
 }
