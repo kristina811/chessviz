@@ -1,6 +1,6 @@
 language: c
 language: rust
 rust:
-  - GCC-6.3.0-1
+  -6.3.0-1
 compiler: gcc
 script: make
