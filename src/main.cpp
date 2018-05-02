@@ -2,6 +2,7 @@
 #include <conio.h>
 #include "functions.h"
 #include "global.h"
+#include <stdlib.h>
 
 int main(){
   FILE *board;
@@ -33,15 +34,18 @@ int main(){
       }
       j = 64;
   }
-  printA(A);
+   printA(A);
   while(k){
+      if(color) printf("\n white");
+      else printf("\n black");
       move(A, color);
+      color = 1 - color; //color change
+      //system("CLS");
       printA(A);
+      fflush(stdin);
       printf("\n 1 - make a move  0 - give in  ");
       scanf("%d", &k);
-      color = 1 - color;
   }
-  printA(A);
   fclose(board);
   getch();
 }
